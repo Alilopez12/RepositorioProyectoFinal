@@ -4,9 +4,11 @@ import java.util.List;
 
 public interface ICrudUsuario {
 
-    Usuario crearUsuario(Usuario usuario);
-    List<Usuario> obtenerTodosLosUsuarios();
-    Usuario obtenerUsuarioPorCedula(String cedula);
-    Usuario actualizarUsuario(String cedula, Usuario usuario);
+    boolean crearUsuario(String nombre, String apellidos, String cedula, String direccion, String contraseña);
     boolean eliminarUsuario(String cedula);
+    boolean modificarUsuario(String nombre, String apellidos, String cedula, String direccion, String contraseña);
+    Usuario buscarUsuario(String cedula);
+    List<Usuario> listarUsuarios();
+
+    boolean verificarUsuarioExistente(String cedula);
 }

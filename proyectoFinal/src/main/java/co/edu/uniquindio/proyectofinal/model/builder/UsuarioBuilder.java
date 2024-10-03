@@ -3,19 +3,13 @@ package co.edu.uniquindio.proyectofinal.model.builder;
 import co.edu.uniquindio.proyectofinal.model.Usuario;
 
 public class UsuarioBuilder {
-    private String nombre;
-    private String apellidos;
-    private String cedula;
-    private String direccion;
-    private String contraseña;
+    protected String nombre;
+    protected String apellidos;
+    protected String cedula;
+    protected String direccion;
+    protected String contraseña;
 
-    public UsuarioBuilder(String nombre, String apellidos, String cedula, String direccion, String contraseña) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.cedula = cedula;
-        this.direccion = direccion;
-        this.contraseña = contraseña;
-    }
+
 
     public UsuarioBuilder setNombre(String nombre) {
         this.nombre = nombre;
@@ -45,5 +39,5 @@ public class UsuarioBuilder {
     public Usuario build() {
         return new Usuario(nombre, apellidos, cedula, direccion, contraseña);
     }
-    
+
 }
