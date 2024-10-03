@@ -35,13 +35,13 @@ public class ModelFactory implements IModelFactoryServices {
 
 
     @Override
-    public List<UsuarioDto> ontenerUsuarios(){
+    public List<UsuarioDto> obtenerUsuarios(){
         return mapper.getUsuariosDto(marketPlace.getListUsuarios());
     }
 
     @Override
     public boolean agregarUsuario(UsuarioDto usuarioDto){
-        if(marketPlace.verificarUsuarioExiste(usuarioDto.cedula())){
+        if(marketPlace.verificarUsuarioExistente(usuarioDto.cedula())){
             Usuario newUsuario = mapper.usuarioDtoToUsuario(usuarioDto);
             getMarketPlace().crearUsuario(
                     newUsuario.getApellidos(),
@@ -58,6 +58,11 @@ public class ModelFactory implements IModelFactoryServices {
     public boolean eliminarUsuario(String cedula){
         return false;
     }
+    @Override
+    public boolean actualizarUsuario(String cedulaActual, UsuarioDto usuarioDto) {
+        return false;
+    }
+
     public static MarketPlace inicializarDatos(){
         MarketPlace marketPlace1 = new MarketPlace();
         Usuario usuario1 = Usuario.builder()
@@ -76,8 +81,8 @@ public class ModelFactory implements IModelFactoryServices {
                 .contraseña("3351.kdn")
                 .build();
 
-        marketPlace1.getListUsuarios().add(Usuario1);
-        marketPlace1.getListUsuarios().add(Usuario2);
+        marketPlace1.getListUsuarios().add(usuario1);
+        marketPlace1.getListUsuarios().add(usuario2);
 
         return marketPlace1;
 

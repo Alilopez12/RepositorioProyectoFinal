@@ -25,7 +25,7 @@ public class MarketPlace implements ICrudUsuario {
                     .apellidos(apellidos)
                     .cedula(cedula)
                     .direccion(direccion)
-                    .contrasea(contraseña)
+                    .contraseña(contraseña)
                     .build();
 
             getListUsuarios().add(usuario);
@@ -76,10 +76,7 @@ public class MarketPlace implements ICrudUsuario {
 
     @Override
     public boolean verificarUsuarioExistente(String cedula) {
-        if (verificarUsuario(cedula) == null){
-            return true;
-        }
-        return false;
+        return verificarUsuario(cedula) != null;
     }
 
     public Usuario verificarUsuario(String cedula) {

@@ -10,20 +10,19 @@ import java.util.List;
 public class MarketPlaceMappinglmpl implements IMarketPlaceMapping {
 
     @Override
-
     public List<UsuarioDto> getUsuariosDto(List<Usuario> listaUsuarios) {
         if (listaUsuarios == null) {
             return null;
         }
-            List<UsuarioDto> listaUsuariosDto = new ArrayList<UsuarioDto>(listaUsuarios.size());
-            for (Usuario usuario : listaUsuarios) {
-                listaUsuariosDto.add(usuarioToUsuarioDto(usuario));
-            }
-            return listaUsuariosDto;
+        List<UsuarioDto> listaUsuariosDto = new ArrayList<UsuarioDto>(listaUsuarios.size());
+        for (Usuario usuario : listaUsuarios) {
+            listaUsuariosDto.add(usuarioToUsuarioDto(usuario));
         }
+        return listaUsuariosDto;
+    }
 
     @Override
-    public UsuarioDto usuarioToUsuarioDto(Usuario usuario){
+    public UsuarioDto usuarioToUsuarioDto(Usuario usuario) {
         return new UsuarioDto(
                 usuario.getNombre(),
                 usuario.getApellidos(),
@@ -31,14 +30,15 @@ public class MarketPlaceMappinglmpl implements IMarketPlaceMapping {
                 usuario.getDireccion(),
                 usuario.getCedula());
     }
+
     @Override
-    public Usuario usurioDtoToUsuario(UsuarioDto usuarioDto){
+    public Usuario usuarioDtoToUsuario(UsuarioDto usuarioDto) {
         return Usuario.builder()
-                .nombre(UsuarioDto.nombre())
-                .apellidos(UsuarioDto.apellidos())
-                .contraseña(UsuarioDto.contraseña())
-                .direccion(UsuarioDto.direccion())
-                .cedula(UsuarioDto.cedula())
+                .nombre(usuarioDto.nombre())
+                .apellidos(usuarioDto.apellidos())
+                .contraseña(usuarioDto.contraseña())
+                .direccion(usuarioDto.direccion())
+                .cedula(usuarioDto.cedula())
                 .build();
     }
     }
