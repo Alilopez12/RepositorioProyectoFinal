@@ -7,6 +7,9 @@ import java.awt.*;
 
 public interface IMarketPlaceMapping {
     List<UsuarioDto> getUsuariosDto(List<Usuario> listaUsuarios);
+
+    java.util.List<UsuarioDto> getUsuariosDto(java.util.List<Usuario> listaUsuarios);
+
     UsuarioDto usuarioToUsuarioDto(Usuario usuario);
     Usuario usuarioDtoToUsuario(UsuarioDto usuarioDto);
 }
